@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Listing, Lapidary Directory USA</title>
+  <meta name="description" content="Lapidary listing details." />
+  <link rel="canonical" href="https://lapidarydirectory.com/listing.html" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+  <script defer src="/assets/js/listing.js"></script>
+  <script defer src="/assets/js/schema.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/locations.html">Locations</a>
+        <a href="/submit.html" class="btn">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/listings.html">Listings</a>
+      <span class="sep">/</span>
+      <span id="crumbName">Listing</span>
+    </nav>
+
+    <article class="listing">
+      <header class="listing-head">
+        <div>
+          <h1 id="name">Listing</h1>
+          <p class="lead" id="tagline"></p>
+          <div class="meta">
+            <span class="badge" id="type"></span>
+            <span class="dot">•</span>
+            <span id="location"></span>
+          </div>
+        </div>
+        <div class="listing-actions">
+          <a id="website" class="btn" href="#" rel="noopener">Website</a>
+          <a id="directions" class="btn btn-ghost" href="#" rel="noopener">Directions</a>
+        </div>
+      </header>
+
+      <section class="grid-2">
+        <div class="card">
+          <h2 class="h3">Details</h2>
+          <dl class="dl">
+            <div><dt>Category</dt><dd id="category"></dd></div>
+            <div><dt>Offerings</dt><dd id="offerings"></dd></div>
+            <div><dt>Credentials</dt><dd id="credentials"></dd></div>
+            <div><dt>Service area</dt><dd id="serviceArea"></dd></div>
+            <div><dt>Price</dt><dd id="priceModel"></dd></div>
+            <div><dt>Updated</dt><dd id="updatedAt"></dd></div>
+          </dl>
+        </div>
+
+        <div class="card">
+          <h2 class="h3">Contact</h2>
+          <dl class="dl">
+            <div><dt>Phone</dt><dd><a id="phone" href="#"></a></dd></div>
+            <div><dt>Email</dt><dd><a id="email" href="#"></a></dd></div>
+            <div><dt>Address</dt><dd id="address"></dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="h3">About</h2>
+        <p id="about"></p>
+      </section>
+
+      <section class="card">
+        <h2 class="h3">Related</h2>
+        <div id="related" class="cards"></div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
