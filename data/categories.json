@@ -1,0 +1,11 @@
+[
+  { "slug": "lapidary-shop", "name": "Lapidary shops", "hint": "Retail, studio, shop services" },
+  { "slug": "rough-and-slabs", "name": "Rough and slabs", "hint": "Rough rock, slabs, specimen" },
+  { "slug": "tools-and-machines", "name": "Tools and machines", "hint": "Saws, grinders, lathes" },
+  { "slug": "wheels-and-grit", "name": "Wheels and grit", "hint": "Diamond wheels, sanding, polish" },
+  { "slug": "repair-and-service", "name": "Repair and service", "hint": "Blade service, motor work, tune ups" },
+  { "slug": "clubs-and-guilds", "name": "Clubs and guilds", "hint": "Local groups and meetups" },
+  { "slug": "classes-and-workshops", "name": "Classes and workshops", "hint": "Training, workshops, lessons" },
+  { "slug": "custom-cutting", "name": "Custom cutting", "hint": "Cabs, faceting, carving, inlay" },
+  { "slug": "events-and-shows", "name": "Events and shows", "hint": "Shows, swaps, vendor events" }
+]
