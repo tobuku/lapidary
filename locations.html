@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Locations, Lapidary Directory USA</title>
+  <meta name="description" content="Browse lapidary listings by state and city." />
+  <link rel="canonical" href="https://lapidarydirectory.com/locations.html" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a href="/categories.html">Categories</a>
+        <a class="active" href="/locations.html">Locations</a>
+        <a href="/submit.html" class="btn">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <header class="page-head">
+      <h1>Locations</h1>
+      <p class="lead">Open a state to view filtered listings.</p>
+    </header>
+
+    <section class="card">
+      <ul class="link-grid" id="stateLinks"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async () => {
+      const res = await fetch("/data/states.json", { cache: "no-store" });
+      const states = await res.json();
+      const ul = document.getElementById("stateLinks");
+      ul.innerHTML = states
+        .sort((a,b) => a.name.localeCompare(b.name))
+        .map(s => {
+          const href = `/listings.html?state=${encodeURIComponent(s.code)}`;
+          return `<li><a href="${href}">${s.name}</a><span class="fine">${s.code}</span></li>`;
+        })
+        .join("");
+    })();
+  </script>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Locations, Lapidary Directory USA</title>
+  <meta name="description" content="Browse lapidary listings by state and city." />
+  <link rel="canonical" href="https://lapidarydirectory.com/locations.html" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a href="/categories.html">Categories</a>
+        <a class="active" href="/locations.html">Locations</a>
+        <a href="/submit.html" class="btn">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <header class="page-head">
+      <h1>Locations</h1>
+      <p class="lead">Open a state to view filtered listings.</p>
+    </header>
+
+    <section class="card">
+      <ul class="link-grid" id="stateLinks"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async () => {
+      const res = await fetch("/data/states.json", { cache: "no-store" });
+      const states = await res.json();
+      const ul = document.getElementById("stateLinks");
+      ul.innerHTML = states
+        .sort((a,b) => a.name.localeCompare(b.name))
+        .map(s => {
+          const href = `/listings.html?state=${encodeURIComponent(s.code)}`;
+          return `<li><a href="${href}">${s.name}</a><span class="fine">${s.code}</span></li>`;
+        })
+        .join("");
+    })();
+  </script>
+</body>
+</html>
