@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lapidary Directory USA, shops, supplies, clubs, classes</title>
+  <meta name="description" content="A directory of lapidary shops, supplies, clubs, classes, tool makers, repair, and services across the United States." />
+  <link rel="canonical" href="https://lapidarydirectory.com/" />
+
+  <meta property="og:title" content="Lapidary Directory USA" />
+  <meta property="og:description" content="Find lapidary shops, supplies, clubs, classes, and services across the United States." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lapidarydirectory.com/" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+  <script defer src="/assets/js/search.js"></script>
+  <script defer src="/assets/js/schema.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/locations.html">Locations</a>
+        <a href="/submit.html" class="btn">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>Lapidary, all in one place</h1>
+          <p class="lead">
+            Shops, supplies, clubs, classes, tool makers, repair, and services.
+            United States first, then global.
+          </p>
+
+          <form class="searchbar" action="/listings.html" method="get" role="search" aria-label="Site search">
+            <label class="sr-only" for="q">Search listings</label>
+            <input id="q" name="q" type="search" inputmode="search" placeholder="Search by name, city, state, category" autocomplete="off" />
+            <button type="submit">Search</button>
+          </form>
+
+          <div class="hero-cta">
+            <a class="btn" href="/listings.html">Browse listings</a>
+            <a class="btn btn-ghost" href="/submit.html">Add a listing</a>
+          </div>
+
+          <ul class="hero-metrics" id="metrics" aria-live="polite">
+            <li><span class="k" id="mListings">0</span><span class="t">Listings</span></li>
+            <li><span class="k" id="mStates">0</span><span class="t">States</span></li>
+            <li><span class="k" id="mCategories">0</span><span class="t">Categories</span></li>
+          </ul>
+        </div>
+
+        <aside class="card">
+          <h2 class="h3">Popular categories</h2>
+          <ul class="pill-list" id="popularCategories"></ul>
+
+          <div class="divider"></div>
+
+          <h2 class="h3">Popular states</h2>
+          <ul class="pill-list" id="popularStates"></ul>
+
+          <div class="divider"></div>
+
+          <p class="fine">
+            Data lives in JSON. Static pages serve fast. Search runs in your browser.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2 class="h2">What you will find</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3 class="h3">Local services</h3>
+            <p>Custom cutting, polishing, cabochons, repair, saw work, and setup help.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Supplies and tools</h3>
+            <p>Slabs, rough, grit, wheels, blades, dop wax, adhesives, and safety gear.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Learning</h3>
+            <p>Clubs, guilds, classes, workshops, events, and mentors.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="wrap">
+        <h2 class="h2">Build plan</h2>
+        <ol class="steps">
+          <li>Publish core pages and indexable category and state pages.</li>
+          <li>Grow listings through outreach and owner submissions.</li>
+          <li>Add reviews, claims, and paid placements.</li>
+          <li>Expand to Canada, UK, EU, AU, NZ.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
