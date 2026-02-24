@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Submit a listing, Lapidary Directory USA</title>
+  <meta name="description" content="Submit a lapidary listing for review." />
+  <link rel="canonical" href="https://lapidarydirectory.com/submit.html" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a href="/categories.html">Categories</a>
+        <a href="/locations.html">Locations</a>
+        <a class="active btn" href="/submit.html">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <header class="page-head">
+      <h1>Submit a listing</h1>
+      <p class="lead">This form generates a JSON block. Send it via email.</p>
+    </header>
+
+    <section class="card">
+      <form id="submitForm" class="form-grid" autocomplete="off">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" required />
+        </div>
+
+        <div>
+          <label for="type">Type</label>
+          <select id="type" name="type" required>
+            <option value="shop">Shop</option>
+            <option value="supplier">Supplier</option>
+            <option value="club">Club</option>
+            <option value="class">Class</option>
+            <option value="service">Service</option>
+            <option value="maker">Maker</option>
+            <option value="event">Event</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="category">Category</label>
+          <input id="category" name="category" placeholder="example. cabochons, saw service, club" required />
+        </div>
+
+        <div>
+          <label for="tagline">Tagline</label>
+          <input id="tagline" name="tagline" maxlength="120" />
+        </div>
+
+        <div>
+          <label for="state">State</label>
+          <input id="state" name="state" placeholder="Two letter code. Example. AZ" required />
+        </div>
+
+        <div>
+          <label for="city">City</label>
+          <input id="city" name="city" required />
+        </div>
+
+        <div class="col-2">
+          <label for="address">Address</label>
+          <input id="address" name="address" />
+        </div>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" />
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" />
+        </div>
+
+        <div class="col-2">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="url" placeholder="https://example.com" />
+        </div>
+
+        <div class="col-2">
+          <label for="offerings">Offerings</label>
+          <textarea id="offerings" name="offerings" rows="3" placeholder="Comma separated. Example. cabochons, wheel sales, repair"></textarea>
+        </div>
+
+        <div class="col-2">
+          <label for="about">About</label>
+          <textarea id="about" name="about" rows="4"></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn">Generate</button>
+          <button type="button" id="copyBtn" class="btn btn-ghost">Copy</button>
+        </div>
+      </form>
+
+      <div class="divider"></div>
+
+      <h2 class="h3">JSON</h2>
+      <pre class="pre" id="out" aria-live="polite"></pre>
+
+      <p class="fine">
+        Send this JSON to: <a href="mailto:submissions@lapidarydirectory.com">submissions@lapidarydirectory.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("submitForm");
+    const out = document.getElementById("out");
+    const copyBtn = document.getElementById("copyBtn");
+
+    function clean(s) {
+      return String(s || "").trim();
+    }
+
+    function slugify(s) {
+      return clean(s).toLowerCase()
+        .replace(/&/g, " and ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    function nowIso() {
+      return new Date().toISOString();
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+
+      const name = clean(fd.get("name"));
+      const state = clean(fd.get("state")).toUpperCase();
+      const city = clean(fd.get("city"));
+
+      const id = slugify(`${name}-${city}-${state}`);
+
+      const payload = {
+        id,
+        name,
+        type: clean(fd.get("type")),
+        category: slugify(clean(fd.get("category"))),
+        tagline: clean(fd.get("tagline")),
+        state,
+        city,
+        address: clean(fd.get("address")),
+        service_area: "",
+        phone: clean(fd.get("phone")),
+        email: clean(fd.get("email")),
+        website: clean(fd.get("website")),
+        price_model: "",
+        plan: "free",
+        credentials: "",
+        offerings: clean(fd.get("offerings")).split(",").map(s => clean(s)).filter(Boolean),
+        about: clean(fd.get("about")),
+        created_at: nowIso(),
+        updated_at: nowIso()
+      };
+
+      out.textContent = JSON.stringify(payload, null, 2);
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      const text = out.textContent.trim();
+      if (!text) return;
+      await navigator.clipboard.writeText(text);
+    });
+  </script>
+</body>
+</html>
