@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Categories, Lapidary Directory USA</title>
+  <meta name="description" content="Browse lapidary categories and jump into filtered listings." />
+  <link rel="canonical" href="https://lapidarydirectory.com/categories.html" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#111827" />
+
+  <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/base.css" />
+
+  <script defer src="/assets/js/app.js"></script>
+  <script defer src="/assets/js/listings.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/img/logo.svg" alt="Lapidary Directory" width="28" height="28" />
+        <span class="brand-name">Lapidary Directory</span>
+      </a>
+
+      <nav class="nav">
+        <a href="/listings.html">Listings</a>
+        <a class="active" href="/categories.html">Categories</a>
+        <a href="/locations.html">Locations</a>
+        <a href="/submit.html" class="btn">Submit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap page">
+    <header class="page-head">
+      <h1>Categories</h1>
+      <p class="lead">Open a category to view filtered listings.</p>
+    </header>
+
+    <section class="card">
+      <ul class="link-grid" id="categoryLinks"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand foot-brand">
+          <img class="brand-mark" src="/assets/img/logo.svg" alt="" width="24" height="24" />
+          <span class="brand-name">Lapidary Directory</span>
+        </div>
+        <p class="fine">A public directory for lapidary products and services.</p>
+      </div>
+      <div class="foot-links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (async () => {
+      const res = await fetch("/data/categories.json", { cache: "no-store" });
+      const cats = await res.json();
+      const ul = document.getElementById("categoryLinks");
+      ul.innerHTML = cats
+        .sort((a,b) => a.name.localeCompare(b.name))
+        .map(c => {
+          const href = `/listings.html?category=${encodeURIComponent(c.slug)}`;
+          return `<li><a href="${href}">${c.name}</a><span class="fine">${c.hint}</span></li>`;
+        })
+        .join("");
+    })();
+  </script>
+</body>
+</html>
